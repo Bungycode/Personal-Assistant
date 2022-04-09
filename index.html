@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Assistant</title>
+    <meta charset="UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+  </head>
+  <!-- Columns across screen (may be # tabs) -->
+  <body>
+    <div class="container">
+    <header class="row">
+      <h1 class="col s12 m12 center-align card-panel #64b5f6 blue lighten-2">Personal Assistant</h1>
+      <div id="myDIV" class="col s12 header">
+          <h6 class="toDoList">To Do List</h6>
+        </div>
+  </header>
+  </div>
+  <main>
+      <div class='valign-wrapper'>
+          <input type="date" class="datepicker"> 
+          <input class="textArea"  type="text" id="myInput" placeholder="Appointments/Tasks">
+          <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+  </main>
+<!-- This section is for the footer of app.  -->
+  <footer>    
+    <footer id="page-footer">
+      <div class= "#64b5f6 blue lighten-2">
+        <div class="footer-copyright">
+          </div class="container">
+            <!-- Formatted this in justify-content: space-around. Another option is space-between -->
+            <div class="font10">
+              <div class="col s4">© 2022 Personal Assistant</div> 
+              <div class="col s4 grey-text text-lighten-4">Organize your life Quick, Fast, and Easy. </div>
+              <a class="col s4 grey-text text-lighten-4" href="#!">More Links</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./assets/js/script.js"></script>
+    
+  </body>
+</html>

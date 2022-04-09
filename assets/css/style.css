@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+
+.toDoList {
+  /* border: 1px red solid; */
+  font-weight: bold;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  height: 75%;
+}
+
+footer {
+height: 12.5%;
+}
+
+.footer-copyright {
+padding-bottom: 0px !important;
+}
+
+.font10 {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+}
