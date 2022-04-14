@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
 }
 
-.toDoList {
+.eventPlanner {
   /* border: 1px red solid; */
   font-weight: bold;
 }
@@ -30,4 +30,17 @@ padding-bottom: 0px !important;
   font-size: 12px;
   display: flex;
   justify-content: space-around;
+}
+
+.datepicker-prefix{
+  position: relative;
+  width: 10rem;
+  margin: 20px 20px;
+  color: teal;    
+
+}
+
+.column-css {
+  margin: 0px;
+  padding-right: 0px !important;
 }
