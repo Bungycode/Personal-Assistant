@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+}
+
+.eventPlanner {
+  /* border: 1px red solid; */
+  font-weight: bold;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  height: 75%;
+}
+
+footer {
+height: 12.5%;
+}
+
+.footer-copyright {
+padding-bottom: 0px !important;
+}
+
+.font10 {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.datepicker-prefix{
+  position: relative;
+  width: 10rem;
+  margin: 20px 20px;
+  color: teal;    
+
+}
+
+.column-css {
+  margin: 0px;
+  padding-right: 0px !important;
+}
