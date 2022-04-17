@@ -35,34 +35,64 @@
         <div class="row">
           <div class="col s2 input-field datepicker-prefix column-css">
             <i class="material-icons prefix">perm_contact_calendar</i>
-            <input type="hidden" class="datepicker" />
-            <input />
+            <!-- <input type="hidden" class="datepicker date" />
+            <input />   Comment: Tell group - To make the calendar to where the user can't input their own date. You have to replace the commented out code with the code below for materialize -->
+            <input class="datepicker date" />
+            
           </div>
-          <div class="col s5 input-field column-css">
+          <div class="col s4 input-field column-css">
             <!-- Took out form element. This note is a reminder of that incase we need it for fetch() request -->
             <i class="material-icons prefix">mode_edit</i>
-            <textarea id="icon_prefix1" class="materialize-textarea"></textarea>
-            <label for="icon_prefix1">Add Task or Reminder</label>
+            <input id="city" class="materialize-textarea event-city" placeholder="Enter City Here"></input>
           </div>
+          <div class="col s1">
+            <a class="btn-floating btn cyan pulse"><i class="material-icons submit modalEl modal-trigger">local_activity</i></a>
+          </div>
+          
           <!-- Placeholder code for GPS location column -->
           <div class="col s4 input-field column-css">
             <!-- Took form element out. This note is a reminder just incase we need it for fetch() request -->
-            <i class="material-icons prefix">mode_edit</i>
             <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <label for="icon_prefix2">Add Task or Reminder</label>
+            <label for="icon_prefix2">Auto-populate Location</label>
           </div>
           <div class="col s1">
             <a class="btn-floating btn cyan pulse"><i class="material-icons">add</i></a>
           </div>
+
+          <!-- Modal Structures -->
+          <!-- No Input Modal-->
+          <div id="demo-modal" class="modal noInputModal">
+            <div class="modal-content">
+              <h4>Error Message</h4>
+              <p>Please enter both a date AND city.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+            </div>
+          </div>
+
+          <!-- Wrong City Modal-->
+          <div id="demo-modal" class="modal cityErrorModal">
+            <div class="modal-content">
+              <h4>Error Message</h4>
+              <p>No City Found! Please enter the correct city</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+            </div>
+          </div>
+          
         </div>
       </div>
     </main>
+
     <!-- This is the footer section -->
     <footer id="page-footer" class="#64b5f6 blue lighten-2">
       <div class="footer-copyright container font10">
         <!-- Formatted this in justify-content: space-around. Another option is space-between -->
         <div class="col s4">© 2022 Personal Assistant</div>
         <div class="col s4">Organize your life Quick, Fast, and Easy.</div>
+        <!-- Implement something else here -->
         <a class="col s4 black-text darken-4" href="#!">More Links</a>
       </div>
     </footer>
@@ -73,6 +103,18 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/practiceScript.js"></script>
+
+    <!-- <script>
+      $(document).ready(function(){
+        $('.modal').modal();
+        $('.noInputModal').modal('open');
+      });
+
+      $(document).ready(function(){
+        $('.modal').modal();
+        $('.cityErrorModal').modal('open');
+      });
+    </script> -->
+
   </body>
 </html>
-  
