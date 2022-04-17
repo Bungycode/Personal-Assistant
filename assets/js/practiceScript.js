@@ -154,3 +154,4 @@ $(".datepicker-prefix")
   // console.log(navigator.geolocation.getCurrentPosition(success, error, options));
   
   init();
+  
