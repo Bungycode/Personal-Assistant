@@ -57,9 +57,9 @@ SO THAT I can select which events I’d like to attend
 
 You can view the GitHub Repo and Live URL below:
 ### [GitHub Link](https://github.com/Bungycode/Personal-Assistant) 
-### [Live URL]()
+### [Live URL](https://bungycode.github.io/Personal-Assistant/)
 
-<!-- Attach Live URL Link -->
+
 
 
 
