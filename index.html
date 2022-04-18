@@ -33,38 +33,51 @@
     <main>
       <div class="container">
         <div class="row">
-          <div class="col s2 input-field datepicker-prefix column-css">
+
+          <!-- Datepicker not in use at the moment. Future feature -->
+
+          <!-- <div class="col s2 input-field column-css">
             <i class="material-icons prefix">perm_contact_calendar</i>
-            <!-- <input type="hidden" class="datepicker date" />
-            <input />   Comment: Tell group - To make the calendar to where the user can't input their own date. You have to replace the commented out code with the code below for materialize -->
-            <input class="datepicker date" />
-            
-          </div>
-          <div class="col s4 input-field column-css">
+            <input type="text" name="date" id="calendar" class="column-css datepicker date" placeholder="Select Date" required />
+            <label for="calendar"></label>
+          </div> -->
+
+          <div class="col s3 input-field column-css">
             <!-- Took out form element. This note is a reminder of that incase we need it for fetch() request -->
             <i class="material-icons prefix">mode_edit</i>
             <input id="city" class="materialize-textarea event-city" placeholder="Enter City Here"></input>
           </div>
+
           <div class="col s1">
-            <a class="btn-floating btn cyan pulse"><i class="material-icons submit modalEl modal-trigger">local_activity</i></a>
+            <a class="btn-floating btn cyan pulse"><i class="material-icons submit modal-trigger">local_activity</i></a>
           </div>
           
           <!-- Placeholder code for GPS location column -->
-          <div class="col s4 input-field column-css">
+          <div class="col s2 input-field column-css padding-left">
             <!-- Took form element out. This note is a reminder just incase we need it for fetch() request -->
-            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-            <label for="icon_prefix2">Auto-populate Location</label>
+            <p id="icon_prefix2" class="materialize-textarea">Auto-populate Venue</p>
           </div>
           <div class="col s1">
             <a class="btn-floating btn cyan pulse"><i class="material-icons">add</i></a>
           </div>
+        </div>
 
+        <div class="row saved-events">
+        </div>
+
+        <div class="row event-weather">
+        </div>
+
+        <div class="row get-events">
+        </div>
+
+        <div>
           <!-- Modal Structures -->
           <!-- No Input Modal-->
           <div id="demo-modal" class="modal noInputModal">
             <div class="modal-content">
               <h4>Error Message</h4>
-              <p>Please enter both a date AND city.</p>
+              <p>Please enter a major city.</p>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
@@ -75,14 +88,14 @@
           <div id="demo-modal" class="modal cityErrorModal">
             <div class="modal-content">
               <h4>Error Message</h4>
-              <p>No City Found! Please enter the correct city</p>
+              <p>No Major City Found! Please enter the correct major city.</p>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
             </div>
           </div>
-          
         </div>
+          
       </div>
     </main>
 
@@ -103,18 +116,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/practiceScript.js"></script>
-
-    <!-- <script>
-      $(document).ready(function(){
-        $('.modal').modal();
-        $('.noInputModal').modal('open');
-      });
-
-      $(document).ready(function(){
-        $('.modal').modal();
-        $('.cityErrorModal').modal('open');
-      });
-    </script> -->
-
+    
   </body>
 </html>

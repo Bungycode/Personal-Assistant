@@ -32,18 +32,31 @@ padding-bottom: 0px !important;
   justify-content: space-around;
 }
 
-.datepicker-prefix{
+/* .datepicker-prefix{
   position: relative;
   width: 10rem;
   margin: 20px 20px;
   color: teal;    
 
+} */
+
+.input-field{
+  position: relative;
+  color: teal;
 }
 
 .column-css {
   margin: 0px;
   padding-right: 0px !important;
 } 
+
+.padding-left {
+  padding-left: 0px !important;
+}
+
+/* .s1-col {
+  width: 0% !important;
+} */
 
 .hide {
   display: none;
