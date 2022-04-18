@@ -1,64 +1,23 @@
 var eventCityEl = document.querySelector(".event-city");
 var dateEl = document.querySelector(".date");
-var modalEl = document.querySelector("#modalEl");
+var getEventsEl = document.querySelector(".get-events");
+var savedEventsEl = document.querySelector(".saved-events");
+var eventWeatherEl = document.querySelector(".event-weather");
+var cityInputEl = document.querySelector("#city");
+
 
 var HIDE_CLASS = "hide"; 
 
-M.Datepicker.init(document.querySelectorAll(".datepicker"), {
-  format: "mm-dd-yyyy",
-  showClearBtn: true,
-  onClose: function () {
-    var newDate = $(this.el).parent().find(".datepicker").val();
-    $(this.el).parent().find("input[type!=hidden]").val(newDate);
-  },
-});
-$(".datepicker-prefix .prefix").click(function () {
-  $(this).parent().find(".datepicker").datepicker("open");
-});
-$(".datepicker-prefix")
-  .find("input[type!=hidden]")
-  .change(function () {
-    if ($(this).val() != "") {
-      var comps = $(this).val().split("-");
-      // change code below to match your format needs
-      var date = new Date(
-        parseInt(comps[2]),
-        parseInt(comps[1]) - 1,
-        parseInt(comps[0])
-      );
-      $(this).parent().find(".datepicker").datepicker("setDate", date);
-    }
-  });
+// Datepicker not in use at the moment. Future feature
 
-// 4/14 progress
+// var currYear = (new Date()).getFullYear();
+// $(document).ready(function() {
+//   $(".datepicker").datepicker({
+//     defaultDate: new Date(currYear,03),
+//     format: "yyyy-mm-dd"
+//   });
+// });
 
-// function calendarFunction() {
-//   M.Datepicker.init(document.querySelectorAll(".datepicker"), {
-//     format: "mm-dd-yyyy",
-//     showClearBtn: true,
-//     onClose: function () {
-//       var newDate = $(this.el).parent().find(".datepicker").val();
-//       $(this.el).parent().find("input[type!=hidden]").val(newDate);
-//     },
-//   });
-//   $(".datepicker-prefix .prefix").click(function () {
-//     $(this).parent().find(".datepicker").datepicker("open");
-//   });
-//   $(".datepicker-prefix")
-//     .find("input[type!=hidden]")
-//     .change(function () {
-//       if ($(this).val() != "") {
-//         var comps = $(this).val().split("-");
-//         // change code below to match your format needs
-//         var date = new Date(
-//           parseInt(comps[2]),
-//           parseInt(comps[1]) - 1,
-//           parseInt(comps[0])
-//         );
-//         $(this).parent().find(".datepicker").datepicker("setDate", date);
-//       }
-//     });
-// }
 
 // Api Features
 
@@ -71,24 +30,78 @@ var weatherUrl = "https://api.openweathermap.org/";
 var weatherApiKey = "4032b269e04269c6ea8463855c745b5d";
 
 // Events Query
+function getEvents() {
 
-// function getLocalEvents() {}
-
-// var city = eventCityEl.value;
-// console.log(city);
+var city = eventCityEl.value;
+console.log(city);
 // var date = dateEl.value;
 // console.log(date);
-// var eventsQuery =
-//   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+ city +"&startDateTime="+ date +"&apikey="+ tmConsumerKey +"";
+var generatedEventsName = "";
+var generatedEventsVenue = "";
+// Have to target the hard coded element.
+getEventsEl.innerHTML = "";
+var eventsQuery =
+  "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+ city +"&apikey="+ tmConsumerKey +"";
 
-//   fetch(eventsQuery).then(function (response) {
-//     console.log(response) // throws an error because it hasnt been converted yet.
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
+  fetch(eventsQuery).then(function (response) {
+    console.log(response) // throws an error because it hasnt been converted yet.
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    for (var i = 0; i < data._embedded.events.length; i++) {
+      generatedEventsName = data._embedded.events[i].name;
+      console.log(generatedEventsName);
+      if (data._embedded.events[i]._embedded.venues[0].name) {
+      generatedEventsVenue = data._embedded.events[i]._embedded.venues[0].name;
+      } else {
+        generatedEventsVenue = "TBA";
+      }
+        console.log(generatedEventsVenue);
+        var generatedEventsEl = document.createElement("div");
+        // generatedEventsEl.addClass("clearList")
+        generatedEventsEl.innerHTML = `
+                          <div>
+                            <div class="col s8">
+                              ${generatedEventsName}
+                            </div>
+                            <div class="col s4">
+                              ${generatedEventsVenue}
+                            </div>
+                          </div>
+                          `
+        getEventsEl.appendChild(generatedEventsEl);
+    }
+  });
 
-//   });
+}
+
+function printUserSearch() {
+  var citySearch = JSON.parse(window.localStorage.getItem("citySearch")) || [];
+  citySearch.forEach(function (city) {
+    var newDiv = document.createElement("li");
+    newDiv.textContent = city;
+  }) 
+
+}
+
+printUserSearch();
+
+function saveUserSearch() {
+  var city = cityInputEl.value;
+  console.log(city);
+  if (city !== "") {
+    var citySearch = JSON.parse(window.localStorage.getItem("citySearch")) || [];
+    var newCity = {
+      city: city
+    };
+    citySearch.push(newCity);
+    window.localStorage.setItem("citySearch", JSON.stringify(citySearch));
+  }
+}
+
+
+
 
 // window.location
 // var weathersQuery;
@@ -176,14 +189,12 @@ function setEventListeners() {
     //ticketMaster fetch code goes here
     var city = eventCityEl.value;
     console.log(city);
-    var date = dateEl.value;
-    console.log(date);
+    // var date = dateEl.value;
+    // console.log(date);
 
     var eventsQuery =
       "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
       city +
-      "&localDate" +
-      date +
       "&apikey=" +
       tmConsumerKey +
       "";
@@ -195,25 +206,31 @@ function setEventListeners() {
       .then(function (data) {
         console.log(data);
 
-        if (!city || !date) {
-          console.log("Please enter both a date AND city.");
+        if (!city) {
+          console.log("Please enter major city.");
 
-          $(document).ready(function(){
+          // Only need .ready for when the page loads on ready.
+          // $(document).ready(function(){
             $('.modal').modal();
             $('.noInputModal').modal('open');
-          });
+            return;
+          // });
 
         } else if (!data._embedded) {
           console.log("No city found! Please enter the correct city.");
 
-          $(document).ready(function(){
+          // Only need .ready for when the page loads on ready.
+          // $(document).ready(function(){
             $('.modal').modal();
             $('.cityErrorModal').modal('open');
-          });
+            return;
+          // });
 
         } else {
           console.log("Please choose one of the events listed below!")
           console.log(data._embedded.events)
+          getEvents();
+          saveUserSearch()
         }
       });
 
