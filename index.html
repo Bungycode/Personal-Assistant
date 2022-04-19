@@ -32,7 +32,7 @@
     </div>
     <main>
       <div class="container">
-        <div class="row">
+        <div class="row valign-wrapper">
 
           <!-- Datepicker not in use at the moment. Future feature -->
 
@@ -45,7 +45,8 @@
           <div class="col s3 input-field column-css">
             <!-- Took out form element. This note is a reminder of that incase we need it for fetch() request -->
             <i class="material-icons prefix">mode_edit</i>
-            <input id="city" class="materialize-textarea event-city" placeholder="Enter City Here"></input>
+            <!--Does materialize <textarea> need a class of materialize-textarea ?-->
+            <input id="city" class="event-city" placeholder="Enter City Here"></input>
           </div>
 
           <div class="col s1">
@@ -55,7 +56,7 @@
           <!-- Placeholder code for GPS location column -->
           <div class="col s2 input-field column-css padding-left">
             <!-- Took form element out. This note is a reminder just incase we need it for fetch() request -->
-            <p id="icon_prefix2" class="materialize-textarea">Auto-populate Venue</p>
+            <p id="icon_prefix2">Auto-populate Venue</p>
           </div>
           <div class="col s1">
             <a class="btn-floating btn cyan pulse"><i class="material-icons">add</i></a>
@@ -68,7 +69,11 @@
         <div class="row event-weather">
         </div>
 
+        <div id="result-header">
+        </div>
         <div class="row get-events">
+          <div id="result-header">
+          </div>
         </div>
 
         <div>
@@ -106,9 +111,10 @@
         <div class="col s4">© 2022 Personal Assistant</div>
         <div class="col s4">Organize your life Quick, Fast, and Easy.</div>
         <!-- Implement something else here -->
-        <a class="col s4 black-text darken-4" href="#!">More Links</a>
+        <div class="col s4 black-text darken-4">Stay tuned for future features!</div>
       </div>
     </footer>
+
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
