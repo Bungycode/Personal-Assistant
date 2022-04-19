@@ -36,10 +36,11 @@ var city = eventCityEl.value;
 console.log(city);
 // var date = dateEl.value;
 // console.log(date);
-var generatedEventsName = "";
-var generatedEventsVenue = "";
+// var generateEventsName = "";
+// var generateEventsVenue = "";
 // Have to target the hard coded element.
 getEventsEl.innerHTML = "";
+
 var eventsQuery =
   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+ city +"&apikey="+ tmConsumerKey +"";
 
@@ -50,27 +51,27 @@ var eventsQuery =
   .then(function (data) {
     console.log(data);
     for (var i = 0; i < data._embedded.events.length; i++) {
-      generatedEventsName = data._embedded.events[i].name;
-      console.log(generatedEventsName);
+      var generateEventsName = data._embedded.events[i].name;
+      console.log(generateEventsName);
       if (data._embedded.events[i]._embedded.venues[0].name) {
-      generatedEventsVenue = data._embedded.events[i]._embedded.venues[0].name;
+      var generateEventsVenue = data._embedded.events[i]._embedded.venues[0].name;
       } else {
-        generatedEventsVenue = "TBA";
+        generateEventsVenue = "TBA";
       }
-        console.log(generatedEventsVenue);
-        var generatedEventsEl = document.createElement("div");
+        console.log(generateEventsVenue);
+        var generateEventsEl = document.createElement("div");
         // generatedEventsEl.addClass("clearList")
-        generatedEventsEl.innerHTML = `
+        generateEventsEl.innerHTML = `
                           <div>
-                            <div class="col s8">
-                              ${generatedEventsName}
+                            <div class="col s7 red">
+                              ${generateEventsName}
                             </div>
-                            <div class="col s4">
-                              ${generatedEventsVenue}
+                            <div class="col s5 black white-text">
+                              ${generateEventsVenue}
                             </div>
                           </div>
                           `
-        getEventsEl.appendChild(generatedEventsEl);
+        getEventsEl.appendChild(generateEventsEl);
     }
   });
 
@@ -101,6 +102,100 @@ function saveUserSearch() {
 }
 
 
+function setEventListeners() {
+  $(".submit").on("click", function () {
+    //ticketMaster fetch code goes here
+    var city = eventCityEl.value;
+    console.log(city);
+    // var date = dateEl.value;
+    // console.log(date);
+
+    var eventsQuery =
+      "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
+      city +
+      "&apikey=" +
+      tmConsumerKey +
+      "";
+
+    fetch(eventsQuery)
+      .then(function (response) {
+        console.log(response); // throws an error because it hasnt been converted yet. maybe not...
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+
+        if (!city) {
+          console.log("Please enter major city.");
+
+          // Only need .ready for when the page loads on ready.
+          // $(document).ready(function(){
+            $('.modal').modal();
+            $('.noInputModal').modal('open');
+            return;
+          // });
+
+        } else if (!data._embedded) {
+          console.log("No city found! Please enter the correct city.");
+
+          // Only need .ready for when the page loads on ready.
+          // $(document).ready(function(){
+            $('.modal').modal();
+            $('.cityErrorModal').modal('open');
+            return;
+          // });
+
+        } else {
+          console.log("Please choose one of the events listed below!")
+          console.log(data._embedded.events)
+          getEvents();
+          saveUserSearch()
+        }
+      });
+
+    // weather fetch code goes here
+
+    var weatherQuery = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${weatherApiKey}`;
+
+    fetch(weatherQuery)
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        // var generateCityWeatherName = "";
+        // var generateCityWeatherTemp = "";
+        // var generateCityWeatherHumidity = "";
+        // var generateCityWeatherDescription = "";
+        eventWeatherEl.innerHTML = "";
+        var displayCityWeather = document.createElement("div"); 
+        //displayCityWeather.classList.add("center-align");
+        var generateCityWeatherName = data.name;
+        console.log(generateCityWeatherName);
+        var generateCityWeatherTemp = data.main.temp;
+        console.log(generateCityWeatherTemp);
+        var generateCityWeatherHumidity = data.main.humidity;
+        console.log(generateCityWeatherHumidity);
+        var generateCityWeatherDescription = data.weather[0].description;
+        console.log(generateCityWeatherDescription);
+        var generateCityWeatherIcon = data.weather[0].icon;
+        console.log(generateCityWeatherIcon);
+        displayCityWeather.classList = "col m3 col s12 blue darken-3 white-text";
+        displayCityWeather.innerHTML = `
+                              <h4>${generateCityWeatherName}</h4>
+                              <img src="https://openweathermap.org/img/wn/${generateCityWeatherIcon}.png" />
+                              <dl>
+                                <dt>Description: ${generateCityWeatherDescription}</dt>
+                                  <dt>Temp: ${generateCityWeatherTemp}</dt>
+                                  <dt>Humidity: ${generateCityWeatherHumidity}%</dt>
+                              </dl>
+                            `
+        eventWeatherEl.appendChild(displayCityWeather);
+
+      });
+  });
+}
 
 
 // window.location
@@ -183,77 +278,6 @@ function saveUserSearch() {
 // console.log(navigator.geolocation);
 // console.log(navigator.geolocation.getCurrentPosition)
 // console.log(navigator.geolocation.getCurrentPosition(success, error, options));
-
-function setEventListeners() {
-  $(".submit").on("click", function () {
-    //ticketMaster fetch code goes here
-    var city = eventCityEl.value;
-    console.log(city);
-    // var date = dateEl.value;
-    // console.log(date);
-
-    var eventsQuery =
-      "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
-      city +
-      "&apikey=" +
-      tmConsumerKey +
-      "";
-    fetch(eventsQuery)
-      .then(function (response) {
-        console.log(response); // throws an error because it hasnt been converted yet. maybe not...
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-
-        if (!city) {
-          console.log("Please enter major city.");
-
-          // Only need .ready for when the page loads on ready.
-          // $(document).ready(function(){
-            $('.modal').modal();
-            $('.noInputModal').modal('open');
-            return;
-          // });
-
-        } else if (!data._embedded) {
-          console.log("No city found! Please enter the correct city.");
-
-          // Only need .ready for when the page loads on ready.
-          // $(document).ready(function(){
-            $('.modal').modal();
-            $('.cityErrorModal').modal('open');
-            return;
-          // });
-
-        } else {
-          console.log("Please choose one of the events listed below!")
-          console.log(data._embedded.events)
-          getEvents();
-          saveUserSearch()
-        }
-      });
-
-    //weather fetch code goes here
-
-    //   var locationUrl = `https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=${weatherApiKey}`;
-
-    //   fetch(locationUrl)
-    //     .then(function (response) {
-    //       console.log(response);
-    //       return response.json();
-    //     })
-    //     .then(function (data) {
-    //       console.log(data);
-    //       var lat = data.coord.lat;
-    //       console.log(lat);
-    //       var lon = data.coord.lon;
-    //       console.log(lon);
-    //       var city = data.name;
-    //       //console.log(city);
-    //     });
-  });
-}
 
 function init() {
   setEventListeners();
