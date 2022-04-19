@@ -22,17 +22,17 @@
   <body>
     <div class="container">
       <header class="row">
-        <h1 class="col s12 m12 center-align card-panel #fbc02d yellow darken-2">
+        <h1 class="col s12 m12 center-align card-panel #fbc02d transparent lime-text text-lighten-3">
           Personal Assistant
         </h1>
         <div id="myDIV" class="col s12 header">
-          <h5 class="eventPlanner center-align">Event Planner</h5>
+          <h5 class="eventPlanner center-align light-green-text text-accent-1">Event Planner</h5>
         </div>
       </header>
     </div>
     <main>
       <div class="container">
-        <div class="row">
+        <div class="row valign-wrapper">
 
           <!-- Datepicker not in use at the moment. Future feature -->
 
@@ -42,23 +42,27 @@
             <label for="calendar"></label>
           </div> -->
 
-          <div class="col s3 input-field column-css">
+          <div class="col s1">
+            <label for="type-box"><a class="btn-floating btn black pulse"><i class="material-icons">mode_edit</i></a></label>
+          </div>
+
+          <div class="col s2 input-field column-css">
             <!-- Took out form element. This note is a reminder of that incase we need it for fetch() request -->
-            <i class="material-icons prefix">mode_edit</i>
-            <input id="city" class="materialize-textarea event-city" placeholder="Enter City Here"></input>
+            <!--Does materialize <textarea> need a class of materialize-textarea ?-->
+            <input id="type-box" class="city event-city city-css" placeholder="Enter City Here"></input>
           </div>
 
           <div class="col s1">
-            <a class="btn-floating btn cyan pulse"><i class="material-icons submit modal-trigger">local_activity</i></a>
+            <a class="btn-floating btn black pulse"><i class="material-icons submit modal-trigger">local_activity</i></a>
           </div>
           
           <!-- Placeholder code for GPS location column -->
           <div class="col s2 input-field column-css padding-left">
             <!-- Took form element out. This note is a reminder just incase we need it for fetch() request -->
-            <p id="icon_prefix2" class="materialize-textarea">Auto-populate Venue</p>
+            <p id="icon_prefix2 " class="light-green-text text-accent-1">Save Event</p>
           </div>
-          <div class="col s1">
-            <a class="btn-floating btn cyan pulse"><i class="material-icons">add</i></a>
+          <div class="col s2">
+            <a class="btn-floating btn black pulse"><i class="material-icons">add</i></a>
           </div>
         </div>
 
@@ -68,7 +72,11 @@
         <div class="row event-weather">
         </div>
 
+        <div id="result-header">
+        </div>
         <div class="row get-events">
+          <div id="result-header">
+          </div>
         </div>
 
         <div>
@@ -100,13 +108,13 @@
     </main>
 
     <!-- This is the footer section -->
-    <footer id="page-footer" class="#fbc02d yellow darken-2">
+    <footer id="page-footer" class="card panel #fbc02d transparent lime-text text-lighten-3">
       <div class="footer-copyright container font10">
         <!-- Formatted this in justify-content: space-around. Another option is space-between -->
         <div class="col s4">© 2022 Personal Assistant</div>
         <div class="col s4">Organize your life Quick, Fast, and Easy.</div>
         <!-- Implement something else here -->
-        <a class="col s4 black-text darken-4" href="#!">More Links</a>
+        <div class="col s4">Stay tuned for future features!</div>
       </div>
     </footer>
 
@@ -116,6 +124,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/practiceScript.js"></script>
-
+    
   </body>
 </html>

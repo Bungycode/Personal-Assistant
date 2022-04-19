@@ -1,5 +1,17 @@
 body {
   font-family: sans-serif;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient( 100deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+main {
+  flex: 1 0 auto;
+  height: 75%;
 }
 
 .eventPlanner {
@@ -7,15 +19,8 @@ body {
   font-weight: bold;
 }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-  height: 75%;
+.city-css {
+  opacity: 50%
 }
 
 footer {
@@ -40,9 +45,9 @@ padding-bottom: 0px !important;
 
 } */
 
-.input-field{
+.input-field {
   position: relative;
-  color: teal;
+  color: black  !important;
 }
 
 .column-css {
@@ -60,4 +65,28 @@ padding-bottom: 0px !important;
 
 .hide {
   display: none;
+}
+
+.black-border {
+  border: black 1px solid;
+}
+
+.grey-border {
+  border: grey 1px solid;
+}
+
+.zero-margin {
+  margin: 0px;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+}
+  100% {
+    background-position: 0% 50%;
+}
 }
