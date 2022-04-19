@@ -4,7 +4,7 @@ var getEventsEl = document.querySelector(".get-events");
 var savedEventsEl = document.querySelector(".saved-events");
 var eventWeatherEl = document.querySelector(".event-weather");
 var cityInputEl = document.querySelector("#city");
-
+var resultHeader = document.querySelector("#result-header");
 
 var HIDE_CLASS = "hide"; 
 
@@ -73,6 +73,12 @@ var eventsQuery =
                           `
         getEventsEl.appendChild(generateEventsEl);
     }
+    resultHeader.innerHTML = `
+                    <div class="row valign-wrapper">
+                      <h4 class="col s7">${city} Events</h4>
+                      <h4 class="col s5">Venues</h4>
+                    </div>
+                  `
   });
 
 }
@@ -183,13 +189,11 @@ function setEventListeners() {
         console.log(generateCityWeatherIcon);
         displayCityWeather.classList = "col m3 col s12 blue darken-3 white-text";
         displayCityWeather.innerHTML = `
-                              <h4>${generateCityWeatherName}</h4>
+                              <h4>${generateCityWeatherName} Weather</h4>
                               <img src="https://openweathermap.org/img/wn/${generateCityWeatherIcon}.png" />
-                              <dl>
-                                <dt>Description: ${generateCityWeatherDescription}</dt>
-                                  <dt>Temp: ${generateCityWeatherTemp}</dt>
-                                  <dt>Humidity: ${generateCityWeatherHumidity}%</dt>
-                              </dl>
+                              <p>Description: ${generateCityWeatherDescription}</p>
+                              <p>Temp: ${generateCityWeatherTemp}</p>
+                              <p>Humidity: ${generateCityWeatherHumidity}%</p>
                             `
         eventWeatherEl.appendChild(displayCityWeather);
 
