@@ -3,7 +3,7 @@ var dateEl = document.querySelector(".date");
 var getEventsEl = document.querySelector(".get-events");
 var savedEventsEl = document.querySelector(".saved-events");
 var eventWeatherEl = document.querySelector(".event-weather");
-var cityInputEl = document.querySelector("#city");
+var cityInputEl = document.querySelector(".city");
 var resultHeader = document.querySelector("#result-header");
 
 var HIDE_CLASS = "hide"; 
@@ -63,20 +63,20 @@ var eventsQuery =
         // generatedEventsEl.addClass("clearList")
         generateEventsEl.innerHTML = `
                           <div>
-                            <div class="col s7 red">
+                            <div class="col s7 grey lighten-2 black-border">
                               ${generateEventsName}
                             </div>
-                            <div class="col s5 black white-text">
+                            <div class="col s5 black grey-text text-lighten-2 grey-border">
                               ${generateEventsVenue}
                             </div>
                           </div>
                           `
-        getEventsEl.appendChild(generateEventsEl);
+      getEventsEl.appendChild(generateEventsEl);
     }
     resultHeader.innerHTML = `
-                    <div class="row valign-wrapper">
-                      <h4 class="col s7">${city} Events</h4>
-                      <h4 class="col s5">Venues</h4>
+                    <div class="row valign-wrapper zero-margin">
+                      <h4 class="col s7 light-green-text text-accent-1">${city} Events</h4>
+                      <h4 class="col s5 light-green-text text-accent-1">Venues</h4>
                     </div>
                   `
   });
@@ -187,9 +187,9 @@ function setEventListeners() {
         console.log(generateCityWeatherDescription);
         var generateCityWeatherIcon = data.weather[0].icon;
         console.log(generateCityWeatherIcon);
-        displayCityWeather.classList = "col m3 col s12 blue darken-3 white-text";
+        displayCityWeather.classList ="col m3 col s12 grey-text text-lighten-2 black-border";
         displayCityWeather.innerHTML = `
-                              <h4>${generateCityWeatherName} Weather</h4>
+                              <h4 class="light-green-text text-accent-1">${generateCityWeatherName} Weather</h4>
                               <img src="https://openweathermap.org/img/wn/${generateCityWeatherIcon}.png" />
                               <p>Description: ${generateCityWeatherDescription}</p>
                               <p>Temp: ${generateCityWeatherTemp}</p>
