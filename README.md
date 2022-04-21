@@ -64,9 +64,9 @@ You can view the GitHub Repo and Live URL below:
 
 
 ##### Screenshot of the Persoanl Assistant - Event Planner:
-![]()
-
-<!-- Attach Screen Shot -->
+![Personal-Assistant Initialization Image](./assets/images/personal-assistant-init-image.png)
+![Personal-Assistant Modal Image](./assets/images/personal-assistant-modal-image.png)
+![Personal-Assistant Event Search Image](./assets/images/personal-assistant-event-search-image.png)
 
 
 
