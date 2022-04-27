@@ -10,13 +10,13 @@ var HIDE_CLASS = "hide";
 
 // Datepicker not in use at the moment. Future feature
 
-// var currYear = (new Date()).getFullYear();
-// $(document).ready(function() {
-//   $(".datepicker").datepicker({
-//     defaultDate: new Date(currYear,03),
-//     format: "yyyy-mm-dd"
-//   });
-// });
+var currYear = (new Date()).getFullYear();
+$(document).ready(function() {
+  $(".datepicker").datepicker({
+    defaultDate: new Date(currYear,03),
+    format: "yyyy-mm-dd"
+  });
+});
 
 
 // Api Features
