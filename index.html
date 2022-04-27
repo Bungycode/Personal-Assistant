@@ -30,80 +30,73 @@
         </div>
       </header>
     </div>
+
     <main>
       <div class="container">
         <div class="row valign-wrapper">
-
           <!-- Datepicker not in use at the moment. Future feature -->
-
-          <!-- <div class="col s2 input-field column-css">
-            <i class="material-icons prefix">perm_contact_calendar</i>
-            <input type="text" name="date" id="calendar" class="column-css datepicker date" placeholder="Select Date" required />
-            <label for="calendar"></label>
-          </div> -->
-
-          <div class="col s1">
-            <label for="type-box"><a class="btn-floating btn black pulse"><i class="material-icons">mode_edit</i></a></label>
+          <div class="col s1 column-css">
+            <label for="calendar"><a class="btn-floating btn black pulse"><i
+                  class="material-icons ">perm_contact_calendar</i></a></label>
           </div>
-
+          <div class="col s1 input-field column-css">
+            <input type="text" name="date" id="calendar" class="column-css datepicker date" placeholder="Select Date"
+              required />
+          </div>
+          <div class="col s1">
+            <label for="type-box"><a class="btn-floating btn black pulse"><i
+                  class="material-icons">mode_edit</i></a></label>
+          </div>
           <div class="col s2 input-field column-css">
             <!-- Took out form element. This note is a reminder of that incase we need it for fetch() request -->
             <!--Does materialize <textarea> need a class of materialize-textarea ?-->
             <input id="type-box" class="city event-city city-css" placeholder="Enter City Here"></input>
           </div>
-
           <div class="col s1">
             <a class="btn-floating btn black pulse"><i class="material-icons submit modal-trigger">local_activity</i></a>
           </div>
-          
           <!-- Placeholder code for GPS location column -->
           <div class="col s2 input-field column-css padding-left">
             <!-- Took form element out. This note is a reminder just incase we need it for fetch() request -->
             <p id="icon_prefix2 " class="light-green-text text-accent-1">Save Event</p>
           </div>
-          <div class="col s2">
+          <div class="col s1">
             <a class="btn-floating btn black pulse"><i class="material-icons">add</i></a>
           </div>
         </div>
-
-        <div class="row saved-events">
-        </div>
-
-        <div class="row event-weather">
-        </div>
-
-        <div id="result-header">
-        </div>
-        <div class="row get-events">
+          <div class="row saved-events">
+          </div>
+          <div class="row event-weather">
+          </div>
           <div id="result-header">
           </div>
-        </div>
-
-        <div>
-          <!-- Modal Structures -->
-          <!-- No Input Modal-->
-          <div id="demo-modal" class="modal noInputModal">
-            <div class="modal-content">
-              <h4>Error Message</h4>
-              <p>Please enter a major city.</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+          <div class="row get-events">
+            <div id="result-header">
             </div>
           </div>
-
-          <!-- Wrong City Modal-->
-          <div id="demo-modal" class="modal cityErrorModal">
-            <div class="modal-content">
-              <h4>Error Message</h4>
-              <p>No Major City Found! Please enter the correct major city.</p>
+          <div>
+            <!-- Modal Structures -->
+            <!-- No Input Modal-->
+            <div id="demo-modal" class="modal noInputModal">
+              <div class="modal-content">
+                <h4>Error Message</h4>
+                <p>Please enter a major city.</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+              </div>
             </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+            <!-- Wrong City Modal-->
+            <div id="demo-modal" class="modal cityErrorModal">
+              <div class="modal-content">
+                <h4>Error Message</h4>
+                <p>No Major City Found! Please enter the correct major city.</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">Close</a>
+              </div>
             </div>
           </div>
-        </div>
-          
       </div>
     </main>
 
