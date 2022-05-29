@@ -14,7 +14,7 @@ var currYear = (new Date()).getFullYear();
 $(document).ready(function() {
   $(".datepicker").datepicker({
     defaultDate: new Date(currYear,03),
-    format: "yyyy-mm-dd"
+    format: "mm-dd-yyyy"
   });
 });
 

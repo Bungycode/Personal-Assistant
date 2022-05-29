@@ -14,12 +14,17 @@ main {
   height: 75%;
 }
 
+input {
+  border: none !important;
+  color: #ccff90 !important;
+}
+
 .eventPlanner {
   font-weight: bold;
 }
 
-.city-css {
-  opacity: 50%
+::placeholder {
+  color: #ccff90 !important;
 }
 
 footer {
@@ -47,6 +52,7 @@ padding-bottom: 0px !important;
 .input-field {
   position: relative;
   color: black  !important;
+  border: none;
 }
 
 .column-css {
@@ -80,8 +86,14 @@ padding-bottom: 0px !important;
   }
   50% {
     background-position: 100% 50%;
-}
+  }
   100% {
     background-position: 0% 50%;
+  }
 }
-}
+
+/* @media only screen and (max-width: 600px) {
+  h1 {
+    color: red !important;
+  }
+} */
