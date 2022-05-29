@@ -8,7 +8,7 @@ var resultHeader = document.querySelector("#result-header");
 
 var HIDE_CLASS = "hide"; 
 
-// Datepicker not in use at the moment. Future feature
+// Datepicker not in use at the moment. Future feature to filter events by date.
 
 var currYear = (new Date()).getFullYear();
 $(document).ready(function() {
@@ -43,6 +43,7 @@ getEventsEl.innerHTML = "";
 
 var eventsQuery =
   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+ city +"&apikey="+ tmConsumerKey +"";
+
 
   fetch(eventsQuery).then(function (response) {
     console.log(response) // throws an error because it hasnt been converted yet.
@@ -88,8 +89,7 @@ function printUserSearch() {
   citySearch.forEach(function (city) {
     var newDiv = document.createElement("li");
     newDiv.textContent = city;
-  }) 
-
+  }); 
 }
 
 printUserSearch();
@@ -125,7 +125,7 @@ function setEventListeners() {
 
     fetch(eventsQuery)
       .then(function (response) {
-        console.log(response); // throws an error because it hasnt been converted yet. maybe not...
+        console.log(response); 
         return response.json();
       })
       .then(function (data) {
@@ -201,20 +201,7 @@ function setEventListeners() {
   });
 }
 
-
-// window.location
-// var weathersQuery;
-// var query =
-//   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
-//   city +
-//   "&startDateTime=" +
-//   sTime +
-//   "apikey=" +
-//   apiKey +
-//   "";
-// var apiKey = "pcEJGr2cYwQGRI3Kn9mALQEZapaMlNvg";
-
-// // Weather Query
+// Future feature: Get current location and time from user
 
 // var currentTime = tmConsumerKey.current.dt;
 
@@ -241,20 +228,11 @@ function setEventListeners() {
 
 // });
 
-// User story templage
-
-// As a user
-
-// I want to create a row for the activity
-
-// So that it gets added to the screen.
-
 // function createCityEvents() {
 //     console.log("foo");
 // }
 
 // The below code is for current gps authorization.
-// Get james to help us with this function.
 
 // var options = {
 //   enableHighAccuracy: true,

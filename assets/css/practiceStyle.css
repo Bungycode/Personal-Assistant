@@ -15,7 +15,6 @@ main {
 }
 
 .eventPlanner {
-  /* border: 1px red solid; */
   font-weight: bold;
 }
 
@@ -58,10 +57,6 @@ padding-bottom: 0px !important;
 .padding-left {
   padding-left: 0px !important;
 }
-
-/* .s1-col {
-  width: 0% !important;
-} */
 
 .hide {
   display: none;
