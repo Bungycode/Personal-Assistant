@@ -4,7 +4,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: linear-gradient(100deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background: linear-gradient( 100deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -14,13 +14,17 @@ main {
   height: 75%;
 }
 
+input {
+  border: none !important;
+  color: #ccff90 !important;
+}
+
 .eventPlanner {
-  /* border: 1px red solid; */
   font-weight: bold;
 }
 
-.city-css {
-  opacity: 50%
+::placeholder {
+  color: #ccff90 !important;
 }
 
 footer {
@@ -48,6 +52,7 @@ padding-bottom: 0px !important;
 .input-field {
   position: relative;
   color: black  !important;
+  border: none;
 }
 
 .column-css {
@@ -58,10 +63,6 @@ padding-bottom: 0px !important;
 .padding-left {
   padding-left: 0px !important;
 }
-
-/* .s1-col {
-  width: 0% !important;
-} */
 
 .hide {
   display: none;
@@ -85,8 +86,14 @@ padding-bottom: 0px !important;
   }
   50% {
     background-position: 100% 50%;
-}
+  }
   100% {
     background-position: 0% 50%;
+  }
 }
-}
+
+/* @media only screen and (max-width: 600px) {
+  h1 {
+    color: red !important;
+  }
+} */

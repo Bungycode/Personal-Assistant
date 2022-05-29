@@ -8,13 +8,13 @@ var resultHeader = document.querySelector("#result-header");
 
 var HIDE_CLASS = "hide"; 
 
-// Datepicker not in use at the moment. Future feature
+// Datepicker not in use at the moment. Future feature to filter events by date.
 
 var currYear = (new Date()).getFullYear();
 $(document).ready(function() {
   $(".datepicker").datepicker({
     defaultDate: new Date(currYear,03),
-    format: "yyyy-mm-dd"
+    format: "mm-dd-yyyy"
   });
 });
 
@@ -116,6 +116,13 @@ function setEventListeners() {
     // var date = dateEl.value;
     // console.log(date);
 
+    // var eventsQuery =
+    // "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
+    // city +
+    // "&apikey=" +
+    // tmConsumerKey +
+    // "";
+
     var eventsQuery =
       "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
       city +
@@ -123,9 +130,10 @@ function setEventListeners() {
       tmConsumerKey +
       "";
 
+    // Future feature to try to get certain data by bypassing CORS
+    // fetch(eventsQuery, { method: "GET", headers: {"Content-Type": "application/json"}}) // allow me to actually get the data with the assumption im in the same origin.
     fetch(eventsQuery)
       .then(function (response) {
-        console.log(response); // throws an error because it hasnt been converted yet. maybe not...
         return response.json();
       })
       .then(function (data) {
@@ -201,20 +209,7 @@ function setEventListeners() {
   });
 }
 
-
-// window.location
-// var weathersQuery;
-// var query =
-//   "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city=" +
-//   city +
-//   "&startDateTime=" +
-//   sTime +
-//   "apikey=" +
-//   apiKey +
-//   "";
-// var apiKey = "pcEJGr2cYwQGRI3Kn9mALQEZapaMlNvg";
-
-// // Weather Query
+// Future feature: Get current location and time from user
 
 // var currentTime = tmConsumerKey.current.dt;
 
@@ -241,20 +236,11 @@ function setEventListeners() {
 
 // });
 
-// User story templage
-
-// As a user
-
-// I want to create a row for the activity
-
-// So that it gets added to the screen.
-
 // function createCityEvents() {
 //     console.log("foo");
 // }
 
 // The below code is for current gps authorization.
-// Get james to help us with this function.
 
 // var options = {
 //   enableHighAccuracy: true,
