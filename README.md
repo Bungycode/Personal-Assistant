@@ -3,7 +3,7 @@
 
 ### Personal Assistant - Event Planner
 
-The group task for this project was to a create a simple event planner application that allows a user to search for major events happening in major cities that will provide a list of events to attend. This app will run in the browser and feature dynamically updated HTML, CSS powered by jQuery and 2 server-side APIs. 
+The group task for this project was to a create a simple event planner application that allows a user to search for major events happening in major cities that will provide a list of events to attend. This app will run in the browser and feature dynamically updated HTML, CSS powered by jQuery and two third-party APIs. 
 
 We utilized html, css frameworks - materialize, js, 2 server-side APIs and git to build and complete this project. 
 
